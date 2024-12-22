@@ -1,37 +1,39 @@
-import java.util.Comparator;
 
-public class InsertionSort {
-
-    public static void sort(Comparable<A>[] a) {
-        int n = a.length;
-        for (int i = 1; i < n; i++) {
-            for (int j = i; j > 0 && less(a[j], a[j-1]); j--) {
-                exchange(a, j, j-1);
+public class InsertionSort 
+{
+    public void sort(Comparable[] arr)
+    {
+        int n = arr.length;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = i; j < n; j++)
+            {
+                if(less(arr[j], arr[i]))
+                {
+                    exch(arr, i, j);
+                }
             }
         }
     }
 
-    private static boolean less(A v, A w) {
+    private static boolean less(Comparable v, Comparable w)
+    {
         return v.compareTo(w) < 0;
-    }
+    }            
 
-    private static void exchange(A[] a, int i, int j) {
-        A temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
+    private static void exch(Comparable[] arr, int i, int j)   
+    {
+        Comparable t = arr[i];
+        arr[i] = arr[j];
+        arr[j] = t;
     }
-
-    public static void main(String[] args) {
-        String[] array = {"S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
-        sort(array);
-        for (String item : array) {
-            System.out.print(item + " ");
+    private static boolean isSorted(Comparable[] arr)
+    {
+        for(int i = 1; i < arr.length; i++)
+        {
+            if(less(arr[i], arr[i - 1]))
+                return false;
         }
-    }
-}
-
-class A implements Comparable<A> {
-    public int compareTo(A otherA) {
-        return 0;
+        return true;
     }
 }
