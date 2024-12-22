@@ -16,6 +16,7 @@ public class InsertionSort
         }
     }
 
+    
     private static boolean less(Comparable v, Comparable w)
     {
         return v.compareTo(w) < 0;
