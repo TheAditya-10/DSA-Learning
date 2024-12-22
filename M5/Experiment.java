@@ -12,7 +12,7 @@ public class Experiment {
             arr[i] = sc.next();
         }
         sc.close();
-        InsertionSort is = new InsertionSort();
+        SelectionSort is = new SelectionSort();
         is.sort(arr);
         for(int i = 0; i < n; i++)
         {
